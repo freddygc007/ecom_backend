@@ -1,0 +1,419 @@
+{% extends 'ecommerce/base.html' %}
+
+{% block title %}My Profile - ShopHub{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4">My Profile</h1>
+    
+    <div class="row">
+        <!-- Profile Navigation -->
+        <div class="col-lg-3 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center mb-3">
+                        <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-2" style="width: 80px; height: 80px;">
+                            <i class="fas fa-user fa-2x text-white"></i>
+                        </div>
+                        <h6 class="mb-1">John Doe</h6>
+                        <p class="text-muted small">john.doe@email.com</p>
+                    </div>
+                    
+                    <nav class="nav flex-column">
+                        <a class="nav-link active" href="#profile" data-bs-toggle="tab">
+                            <i class="fas fa-user me-2"></i>Profile Information
+                        </a>
+                        <a class="nav-link" href="#orders" data-bs-toggle="tab">
+                            <i class="fas fa-shopping-bag me-2"></i>Order History
+                        </a>
+                        <a class="nav-link" href="#addresses" data-bs-toggle="tab">
+                            <i class="fas fa-map-marker-alt me-2"></i>Addresses
+                        </a>
+                        <a class="nav-link" href="#wishlist" data-bs-toggle="tab">
+                            <i class="fas fa-heart me-2"></i>Wishlist
+                        </a>
+                        <a class="nav-link" href="#settings" data-bs-toggle="tab">
+                            <i class="fas fa-cog me-2"></i>Account Settings
+                        </a>
+                        <hr class="my-2">
+                        <a class="nav-link text-danger" href="#">
+                            <i class="fas fa-sign-out-alt me-2"></i>Logout
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Profile Content -->
+        <div class="col-lg-9">
+            <div class="tab-content">
+                <!-- Profile Information -->
+                <div class="tab-pane fade show active" id="profile">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Profile Information</h5>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="profileFirstName" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="profileFirstName" value="John">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="profileLastName" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="profileLastName" value="Doe">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="profileEmail" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="profileEmail" value="john.doe@email.com">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="profilePhone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="profilePhone" value="+1 (555) 123-4567">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="profileDateOfBirth" class="form-label">Date of Birth</label>
+                                    <input type="date" class="form-control" id="profileDateOfBirth" value="1990-01-01">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="profileGender" class="form-label">Gender</label>
+                                    <select class="form-select" id="profileGender">
+                                        <option value="male" selected>Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                        <option value="prefer-not-to-say">Prefer not to say</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Update Profile</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Order History -->
+                <div class="tab-pane fade" id="orders">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Order History</h5>
+                        </div>
+                        <div class="card-body">
+                            <!-- Order 1 -->
+                            <div class="border rounded p-3 mb-3">
+                                <div class="row align-items-center">
+                                    <div class="col-md-3">
+                                        <strong>Order #12345</strong>
+                                        <br>
+                                        <small class="text-muted">Placed on Dec 15, 2024</small>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <span class="badge bg-success">Delivered</span>
+                                        <br>
+                                        <small class="text-muted">Delivered on Dec 18, 2024</small>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <strong>$377.97</strong>
+                                        <br>
+                                        <small class="text-muted">3 items</small>
+                                    </div>
+                                    <div class="col-md-3 text-end">
+                                        <a href="#" class="btn btn-outline-primary btn-sm">View Details</a>
+                                        <button class="btn btn-outline-secondary btn-sm">Reorder</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Order 2 -->
+                            <div class="border rounded p-3 mb-3">
+                                <div class="row align-items-center">
+                                    <div class="col-md-3">
+                                        <strong>Order #12344</strong>
+                                        <br>
+                                        <small class="text-muted">Placed on Dec 10, 2024</small>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <span class="badge bg-warning">Shipped</span>
+                                        <br>
+                                        <small class="text-muted">Shipped on Dec 12, 2024</small>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <strong>$149.99</strong>
+                                        <br>
+                                        <small class="text-muted">1 item</small>
+                                    </div>
+                                    <div class="col-md-3 text-end">
+                                        <a href="#" class="btn btn-outline-primary btn-sm">View Details</a>
+                                        <button class="btn btn-outline-secondary btn-sm">Track Order</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Order 3 -->
+                            <div class="border rounded p-3">
+                                <div class="row align-items-center">
+                                    <div class="col-md-3">
+                                        <strong>Order #12343</strong>
+                                        <br>
+                                        <small class="text-muted">Placed on Dec 5, 2024</small>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <span class="badge bg-success">Delivered</span>
+                                        <br>
+                                        <small class="text-muted">Delivered on Dec 8, 2024</small>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <strong>$89.99</strong>
+                                        <br>
+                                        <small class="text-muted">1 item</small>
+                                    </div>
+                                    <div class="col-md-3 text-end">
+                                        <a href="#" class="btn btn-outline-primary btn-sm">View Details</a>
+                                        <button class="btn btn-outline-secondary btn-sm">Reorder</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Addresses -->
+                <div class="tab-pane fade" id="addresses">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Addresses</h5>
+                            <button class="btn btn-primary btn-sm">Add New Address</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="border rounded p-3">
+                                        <div class="d-flex justify-content-between align-items-start mb-2">
+                                            <h6>Home Address</h6>
+                                            <div>
+                                                <button class="btn btn-outline-primary btn-sm me-1">Edit</button>
+                                                <button class="btn btn-outline-danger btn-sm">Delete</button>
+                                            </div>
+                                        </div>
+                                        <p class="mb-1">John Doe</p>
+                                        <p class="mb-1">123 Main Street</p>
+                                        <p class="mb-1">Apt 4B</p>
+                                        <p class="mb-1">New York, NY 10001</p>
+                                        <p class="mb-1">United States</p>
+                                        <p class="mb-0">+1 (555) 123-4567</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <div class="border rounded p-3">
+                                        <div class="d-flex justify-content-between align-items-start mb-2">
+                                            <h6>Work Address</h6>
+                                            <div>
+                                                <button class="btn btn-outline-primary btn-sm me-1">Edit</button>
+                                                <button class="btn btn-outline-danger btn-sm">Delete</button>
+                                            </div>
+                                        </div>
+                                        <p class="mb-1">John Doe</p>
+                                        <p class="mb-1">456 Business Ave</p>
+                                        <p class="mb-1">Suite 200</p>
+                                        <p class="mb-1">New York, NY 10002</p>
+                                        <p class="mb-1">United States</p>
+                                        <p class="mb-0">+1 (555) 123-4567</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Wishlist -->
+                <div class="tab-pane fade" id="wishlist">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">My Wishlist (4 items)</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="card h-100">
+                                        <div class="row g-0">
+                                            <div class="col-4">
+                                                <img src="https://via.placeholder.com/150x150" class="img-fluid rounded-start h-100" alt="Wishlist Item 1">
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="card-body">
+                                                    <h6 class="card-title">Gaming Laptop</h6>
+                                                    <p class="card-text text-muted">High-performance gaming laptop</p>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <span class="h6 text-primary">$1,299.99</span>
+                                                        <button class="btn btn-primary btn-sm">Add to Cart</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <div class="card h-100">
+                                        <div class="row g-0">
+                                            <div class="col-4">
+                                                <img src="https://via.placeholder.com/150x150" class="img-fluid rounded-start h-100" alt="Wishlist Item 2">
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="card-body">
+                                                    <h6 class="card-title">Wireless Mouse</h6>
+                                                    <p class="card-text text-muted">Ergonomic wireless mouse</p>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <span class="h6 text-primary">$59.99</span>
+                                                        <button class="btn btn-primary btn-sm">Add to Cart</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <div class="card h-100">
+                                        <div class="row g-0">
+                                            <div class="col-4">
+                                                <img src="https://via.placeholder.com/150x150" class="img-fluid rounded-start h-100" alt="Wishlist Item 3">
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="card-body">
+                                                    <h6 class="card-title">Mechanical Keyboard</h6>
+                                                    <p class="card-text text-muted">RGB mechanical keyboard</p>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <span class="h6 text-primary">$129.99</span>
+                                                        <button class="btn btn-primary btn-sm">Add to Cart</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <div class="card h-100">
+                                        <div class="row g-0">
+                                            <div class="col-4">
+                                                <img src="https://via.placeholder.com/150x150" class="img-fluid rounded-start h-100" alt="Wishlist Item 4">
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="card-body">
+                                                    <h6 class="card-title">Monitor Stand</h6>
+                                                    <p class="card-text text-muted">Adjustable monitor stand</p>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <span class="h6 text-primary">$79.99</span>
+                                                        <button class="btn btn-primary btn-sm">Add to Cart</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Account Settings -->
+                <div class="tab-pane fade" id="settings">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Account Settings</h5>
+                        </div>
+                        <div class="card-body">
+                            <!-- Change Password -->
+                            <div class="mb-4">
+                                <h6>Change Password</h6>
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="currentPassword" class="form-label">Current Password</label>
+                                            <input type="password" class="form-control" id="currentPassword">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="newPassword" class="form-label">New Password</label>
+                                            <input type="password" class="form-control" id="newPassword">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="confirmNewPassword" class="form-label">Confirm New Password</label>
+                                            <input type="password" class="form-control" id="confirmNewPassword">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Change Password</button>
+                                </form>
+                            </div>
+                            
+                            <hr>
+                            
+                            <!-- Notification Preferences -->
+                            <div class="mb-4">
+                                <h6>Notification Preferences</h6>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="emailNotifications" checked>
+                                    <label class="form-check-label" for="emailNotifications">
+                                        Email notifications
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="smsNotifications">
+                                    <label class="form-check-label" for="smsNotifications">
+                                        SMS notifications
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="orderUpdates" checked>
+                                    <label class="form-check-label" for="orderUpdates">
+                                        Order updates
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="promotionalEmails" checked>
+                                    <label class="form-check-label" for="promotionalEmails">
+                                        Promotional emails
+                                    </label>
+                                </div>
+                                <button class="btn btn-outline-primary">Save Preferences</button>
+                            </div>
+                            
+                            <hr>
+                            
+                            <!-- Privacy Settings -->
+                            <div class="mb-4">
+                                <h6>Privacy Settings</h6>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="profileVisibility" checked>
+                                    <label class="form-check-label" for="profileVisibility">
+                                        Make profile visible to other users
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="orderHistoryVisibility">
+                                    <label class="form-check-label" for="orderHistoryVisibility">
+                                        Show order history in profile
+                                    </label>
+                                </div>
+                                <button class="btn btn-outline-primary">Save Privacy Settings</button>
+                            </div>
+                            
+                            <hr>
+                            
+                            <!-- Account Deletion -->
+                            <div class="mb-4">
+                                <h6 class="text-danger">Danger Zone</h6>
+                                <p class="text-muted small">Once you delete your account, there is no going back. Please be certain.</p>
+                                <button class="btn btn-danger">Delete Account</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

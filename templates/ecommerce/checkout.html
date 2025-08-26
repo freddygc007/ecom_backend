@@ -1,0 +1,321 @@
+{% extends 'ecommerce/base.html' %}
+
+{% block title %}Checkout - ShopHub{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4">Checkout</h1>
+    
+    <div class="row">
+        <!-- Checkout Form -->
+        <div class="col-lg-8 mb-4">
+            <form>
+                <!-- Shipping Information -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-shipping-fast me-2"></i>Shipping Information
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName" class="form-label">First Name *</label>
+                                <input type="text" class="form-control" id="firstName" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName" class="form-label">Last Name *</label>
+                                <input type="text" class="form-control" id="lastName" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number *</label>
+                            <input type="tel" class="form-control" id="phone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Street Address *</label>
+                            <input type="text" class="form-control" id="address" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="city" class="form-label">City *</label>
+                                <input type="text" class="form-control" id="city" required>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="state" class="form-label">State *</label>
+                                <select class="form-select" id="state" required>
+                                    <option value="">Select State</option>
+                                    <option value="CA">California</option>
+                                    <option value="NY">New York</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="IL">Illinois</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="zipCode" class="form-label">ZIP Code *</label>
+                                <input type="text" class="form-control" id="zipCode" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="country" class="form-label">Country *</label>
+                            <select class="form-select" id="country" required>
+                                <option value="">Select Country</option>
+                                <option value="US">United States</option>
+                                <option value="CA">Canada</option>
+                                <option value="MX">Mexico</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Billing Information -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-credit-card me-2"></i>Billing Information
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="sameAsShipping" checked>
+                            <label class="form-check-label" for="sameAsShipping">
+                                Same as shipping address
+                            </label>
+                        </div>
+                        
+                        <div id="billingForm" style="display: none;">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="billingFirstName" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="billingFirstName">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="billingLastName" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="billingLastName">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="billingAddress" class="form-label">Street Address</label>
+                                <input type="text" class="form-control" id="billingAddress">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="billingCity" class="form-label">City</label>
+                                    <input type="text" class="form-control" id="billingCity">
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="billingState" class="form-label">State</label>
+                                    <select class="form-select" id="billingState">
+                                        <option value="">Select State</option>
+                                        <option value="CA">California</option>
+                                        <option value="NY">New York</option>
+                                        <option value="TX">Texas</option>
+                                        <option value="FL">Florida</option>
+                                        <option value="IL">Illinois</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="billingZipCode" class="form-label">ZIP Code</label>
+                                    <input type="text" class="form-control" id="billingZipCode">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Payment Method -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-lock me-2"></i>Payment Method
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" checked>
+                                <label class="form-check-label" for="creditCard">
+                                    <i class="fas fa-credit-card me-2"></i>Credit/Debit Card
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div id="creditCardForm">
+                            <div class="mb-3">
+                                <label for="cardNumber" class="form-label">Card Number *</label>
+                                <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="expiryDate" class="form-label">Expiry Date *</label>
+                                    <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="cvv" class="form-label">CVV *</label>
+                                    <input type="text" class="form-control" id="cvv" placeholder="123" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cardholderName" class="form-label">Cardholder Name *</label>
+                                <input type="text" class="form-control" id="cardholderName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="paypal">
+                                <label class="form-check-label" for="paypal">
+                                    <i class="fab fa-paypal me-2"></i>PayPal
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="applePay">
+                                <label class="form-check-label" for="applePay">
+                                    <i class="fab fa-apple-pay me-2"></i>Apple Pay
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Shipping Method -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-truck me-2"></i>Shipping Method
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="shippingMethod" id="standardShipping" checked>
+                                <label class="form-check-label d-flex justify-content-between" for="standardShipping">
+                                    <span>Standard Shipping (3-5 business days)</span>
+                                    <span class="text-success">FREE</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="shippingMethod" id="expressShipping">
+                                <label class="form-check-label d-flex justify-content-between" for="expressShipping">
+                                    <span>Express Shipping (1-2 business days)</span>
+                                    <span>$15.99</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="shippingMethod" id="overnightShipping">
+                                <label class="form-check-label d-flex justify-content-between" for="overnightShipping">
+                                    <span>Overnight Shipping</span>
+                                    <span>$29.99</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Order Notes -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-sticky-note me-2"></i>Order Notes
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <textarea class="form-control" rows="3" placeholder="Add any special instructions for your order..."></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Order Summary -->
+        <div class="col-lg-4">
+            <div class="card sticky-top" style="top: 20px;">
+                <div class="card-header">
+                    <h5 class="mb-0">Order Summary</h5>
+                </div>
+                <div class="card-body">
+                    <!-- Order Items -->
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Wireless Headphones x1</span>
+                            <span>$99.99</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Smart Watch x1</span>
+                            <span>$199.99</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Laptop Backpack x2</span>
+                            <span>$99.98</span>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <!-- Price Breakdown -->
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Subtotal:</span>
+                        <span>$399.96</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Shipping:</span>
+                        <span class="text-success">FREE</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Tax:</span>
+                        <span>$32.00</span>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="d-flex justify-content-between mb-3">
+                        <strong>Total:</strong>
+                        <strong class="h5 text-primary">$431.96</strong>
+                    </div>
+                    
+                    <!-- Promo Code -->
+                    <div class="mb-3">
+                        <label for="checkoutPromoCode" class="form-label">Promo Code</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="checkoutPromoCode" placeholder="Enter code">
+                            <button class="btn btn-outline-secondary" type="button">Apply</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Place Order Button -->
+                    <button type="submit" class="btn btn-primary w-100 btn-lg">
+                        <i class="fas fa-lock me-2"></i>Place Order
+                    </button>
+                    
+                    <!-- Security Notice -->
+                    <div class="text-center mt-3">
+                        <i class="fas fa-shield-alt text-success me-2"></i>
+                        <small class="text-muted">Secure checkout powered by SSL encryption</small>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Customer Support -->
+            <div class="card mt-3">
+                <div class="card-body text-center">
+                    <i class="fas fa-headset fa-2x text-primary mb-2"></i>
+                    <h6>Need Help?</h6>
+                    <p class="text-muted small mb-2">Our customer support team is here to help</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm">Contact Support</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

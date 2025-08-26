@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-23!qh)!5&-o&qh^rdzcy@1(bk0nt=#2f!xd#r=^^n3&d*%=a)d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
 
 # Application definition
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'EcomBackend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
